@@ -4,7 +4,6 @@ def even_fibonacci_sum(number):
     even_sum = 0
     
 
-
     return even_sum
 
 def main():
