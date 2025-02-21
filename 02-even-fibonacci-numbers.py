@@ -1,18 +1,31 @@
-def even_fibonacci_sum(number):
+# Problem 2 in Project Euler
 
-    
-    even_sum = 0
-    
+# Even Fibonacci numbers
 
-    return even_sum
+import sys
+
+sys.set_int_max_str_digits( 4000000 )            #Increases the limit of the Integers in python
+
+#Function for finding the fibonacci sereis
+
+def fibonacci(num):
+
+	next = [1,2]
+
+	for i in range(next[1],num):                  # Creates the fibonacci series until the given number
+		next.append( next[-1] + next[-2] )
+		
+	sum = 0
+
+	for num in next:			      # Checks if the number is even or not
+		if num % 2 == 0 :
+			sum  += num
+			
+	return sum				      # Returns the sum of the Even numbers
 
 def main():
-
-    n = int(input('The range upto which the sum of even fibonacci numbers are to be calculated: '))
-
-    if n < 0:
-        raise ValueError('INVALID NUMBER!')
-    print('Sum of even numbers in fibonacci series: ',even_fibonacci_sum(n))
-
-
+	fib = int(input("Enter the range until where the fibonacci series to be written: "))
+	print(f" The sum of the even fibonacci series upto given nnumber: {fib} is: {fibonacci(fib)}",end='.\n')
+	
+	
 main()

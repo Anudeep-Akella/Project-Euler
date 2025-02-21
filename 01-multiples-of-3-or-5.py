@@ -1,3 +1,7 @@
+#Problem 1 in Project Euler
+
+# Multiples of 3 or 5
+
 # Function for finding the multiples of 3 and 5 
 def multiples(num):
 
