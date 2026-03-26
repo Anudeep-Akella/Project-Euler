@@ -21,7 +21,6 @@ def main():
         return
 
     print('Sum of even numbers in fibonacci series: ',even_fibonacci_sum(n))
-
-
+    
 if __name__ == "__main__":
     main()
