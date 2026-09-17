@@ -1,26 +1,36 @@
-def even_fibonacci_sum(number):
-    """Finds the fibonacci numbers and sums the even numbers from the fibonacci series upto the given number.""" 
-    even_sum = 0
-    first_digit,second_digit = 1,2 # The first two digits of the fibonacci series are 1 and 2 respectively.
-    print(first_digit)
-    print(second_digit)
+# Problem Sum of Even Valued Terms in Fibonacci series less than 4 million. Where the series start from 1 and 2. 
 
-    for i in range(number-2):   # Loop continues until the second digit is less than or equal to the given number.
+def even_fibonacci_sum(limit: int) -> int:
+    """Return the sum of even Fibonacci numbers below the given limit."""
+
+    first_digit, second_digit = 1, 2
+    even_sum = 0
+
+    while second_digit < limit:
         if second_digit % 2 == 0:
             even_sum += second_digit
-        first_digit,second_digit = second_digit,first_digit + second_digit # The Fibonacci condition is satisfied in this line
-        print(second_digit)
+        first_digit, second_digit = second_digit, first_digit + second_digit
 
     return even_sum
 
 def main():
-    try:
-        n = int(input('The range upto which the sum of even fibonacci numbers are to be calculated: ')) # Takes input from the user
-    except ValueError:
-        print("INVALID INPUT! Please enter a valid number.") # Raises value error if the input is not a valid number
-        return
+    while True:
+        try:
+            n = input('The range upto which the sum of even fibonacci numbers are to be calculated:') # Takes input from the user
+            if int(n) <= 0:
+                print("Please Enter Positive Number!")
+                continue
+            if int(n) == 1:
+                print("The first fibonacci Number: 1")
+                break
+            if int(n) == 2:
+                print("The Second Fibonacci Number: 2")
+                break
+            print('\nSum of even numbers in fibonacci series: ',even_fibonacci_sum(int(n)))
+            break
+        except ValueError:
+            print("INVALID INPUT! Please enter a valid number.") # Raises value error if the input is not a valid number
 
-    print('Sum of even numbers in fibonacci series: ',even_fibonacci_sum(n))
     
 if __name__ == "__main__":
     main()
